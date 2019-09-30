@@ -18,7 +18,7 @@ class FoodBox extends React.Component {
 
 	showFoodBox = () => {
 		return this.state.visibleFoods.map((eachFoodBox, index) => {
-			//visibleFoods name changed after search function implementation
+			//"visibleFoods" name changed from "list" after search function implementation
 			return (
 				<div key={index} className="box">
 					<article className="media">
@@ -66,6 +66,7 @@ class FoodBox extends React.Component {
 
 		this.setState({
 			list: allFoods,
+			visibleFoods: allFoods,
 			newName: "",
 			newCalories: "",
 			newImage: "",
@@ -95,15 +96,14 @@ class FoodBox extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<h2 className="title"> Search</h2>
+				<h2 className="title"> Iron Nutrition</h2>
 				<input
 					className="input is-info"
+					placeholder="Search for your favorite food here"
 					style={{ padding: "10px" }}
 					onChange={this.search}
 					value={this.state.searchTerm}
 				/>
-
-				<h2 className="title">Foods</h2>
 
 				<div className="columns" style={{ padding: "40px" }}>
 					<div className="column">{this.showFoodBox()}</div>
@@ -115,7 +115,7 @@ class FoodBox extends React.Component {
 						)}
 
 						{this.state.formShowing && ( //if formShowing is true show the form
-							<form onSubmit={this.addNewFood} style={{ padding: "40px" }}>
+							<form onSubmit={this.addNewFood} style={{ padding: "10px" }}>
 								<h2 className="title">Add New Food</h2>
 
 								<p>Name</p>
